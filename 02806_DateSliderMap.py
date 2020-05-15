@@ -17,8 +17,6 @@ from bokeh.layouts import widgetbox, row, column
 import bokeh.io
 from bokeh.resources import INLINE
 bokeh.io.output_notebook(INLINE)
-#from bokeh.plotting import figure
-#from bokeh.sampledata.sample_geojson import geojson
 
 
 # Import Oxford Government Respost Tracker and enrich columns for future merging needs
@@ -145,7 +143,6 @@ p.add_layout(color_bar, 'below')
 # Define the callback function: update_plot
 def update_plot(attr, old, new):
     day = datetime.utcfromtimestamp(date_slider.value//1000.0) #date_slider.value   #slider.value
-    #geosource = GeoJSONDataSource(geojson = json_data(day))
     new_data = json_data(day)
     geosource.geojson = new_data
     p.title.text = 'CovIndex, {:%d %b %Y}'.format(day) #'CovIndex, %d' %day
@@ -154,7 +151,7 @@ def update_plot(attr, old, new):
 
 date_slider = DateSlider(title="Date Range: ",
                          start=date(2020, 3, 25),
-                         end=date(2020, 4, 15),
+                         end=date(2020, 5, 14),
                          value=date(2020, 3, 25),
                          step= 86400000
                         )      # https://discourse.bokeh.org/t/bokeh-dateslider-still-broken/2466
@@ -166,10 +163,10 @@ layout = column(p,column(date_slider))
 curdoc().add_root(layout)
 
 #Display plot inline in Jupyter notebook
-output_notebook()
+#output_notebook()
 
 #Display plot
-show(layout)
+#show(layout)
 
 # Activate callback function with Bokeh Server 
 # (run the command below on Anaconda Prompt, from the corect directory)
