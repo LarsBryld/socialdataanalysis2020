@@ -116,7 +116,8 @@ color_mapper = LinearColorMapper(palette = palette, low = 0, high = 40, nan_colo
 tick_labels = {'0': '0%', '5': '5%', '10':'10%', '15':'15%', '20':'20%', '25':'25%', '30':'30%','35':'35%', '40': '>40%'}
 
 #Add hover tool
-hover = HoverTool(tooltips = [('Covid19 Index','@CovIndex'),
+hover = HoverTool(tooltips = [('Country','@CountryName'),
+                              ('Covid19 Index','@CovIndex'),
                               ('Market Performance','@MarketPerformance'),
                               ('Death Rate', '@DeathRate')])
 #hover = HoverTool(tooltips = [ ('Country/region','@country'),('% obesity', '@per_cent_obesity')])
